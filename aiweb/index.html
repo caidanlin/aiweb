@@ -260,16 +260,14 @@
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
 
-        <!-- 想放真实音频：把 怪咖.mp3 放到本文件夹，然后删掉下面两行前后的注释符号
-        <audio id="bgm" controls loop src="怪咖.mp3"></audio>
-        -->
+        <!-- 点「播放律动」即可试听；想换歌就把 src 改成新的文件名 -->
+        <audio id="bgm" controls loop preload="metadata" src="怪咖.mp3"></audio>
 
         <p class="player__tip">
-          把《怪咖》的音频文件命名为 <code>怪咖.mp3</code> 放进本文件夹，
-          再按 <code>index.html</code> 里的说明打开播放器，就能在这里直接听。
+          正在播放：<code>怪咖.mp3</code>。点下面的按钮，音乐和律动一起动起来。
         </p>
 
-        <button class="player__toggle" id="eqToggle" type="button">暂停律动</button>
+        <button class="player__toggle" id="eqToggle" type="button">播放律动</button>
       </div>
 
       <!-- 歌词/感受 -->

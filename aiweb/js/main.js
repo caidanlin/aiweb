@@ -150,9 +150,15 @@
   if (eqToggle && player) {
     eqToggle.addEventListener('click', function () {
       var paused = player.classList.toggle('is-paused');
-      eqToggle.textContent = paused ? '继续律动' : '暂停律动';
+      eqToggle.textContent = paused ? '播放律动' : '暂停律动';
       if (bgm) {
-        if (paused) { bgm.pause(); } else { bgm.play(); }
+        // play() 可能被浏览器自动播放策略拒绝，忽略即可（只是不响，页面不受影响）
+        if (paused) {
+          bgm.pause();
+        } else {
+          var p = bgm.play();
+          if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+        }
       }
     });
   }
