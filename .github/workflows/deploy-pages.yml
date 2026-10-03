@@ -1,0 +1,50 @@
+# 把 aiweb/ 目录发布到 GitHub Pages
+#
+# 站点入口在 aiweb/ 子目录，而 Pages 的「分支发布」只能选根目录或 /docs，
+# 所以这里用 Actions 发布：把 aiweb/ 整个目录作为静态站点上传。
+#
+# 触发条件：推送到 main 且改动涉及 aiweb/（或本工作流本身）。
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'aiweb/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+# 允许 GITHUB_TOKEN 发布 Pages，并用 id-token 做部署来源校验
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一个部署；排队中的新部署会取消旧的排队任务（不打断正在进行的发布）
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传站点文件
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 关键：只发布 aiweb 目录，而不是仓库根目录
+          path: aiweb
+
+      - name: 部署到 Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
