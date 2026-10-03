@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雷姆色的个人主页</title>
+
+<!-- ============ 字体 ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     一、进入页（Gate）
+     全屏遮罩，中间一个发光的「进 入」按钮，四周漂浮 Q 版雷姆
+     ============================================================ -->
+<div class="gate" id="gate">
+
+  <!-- 深蓝渐变 + 星点背景 -->
+  <div class="gate-bg" aria-hidden="true">
+    <span class="gate-orb gate-orb--1"></span>
+    <span class="gate-orb gate-orb--2"></span>
+    <span class="gate-orb gate-orb--3"></span>
+    <div class="gate-stars"></div>
+  </div>
+
+  <!-- 漂浮的 Q 版雷姆（图片已从素材截图里裁好，见 tools/prepare_assets.py） -->
+  <div class="gate-floaters" aria-hidden="true">
+    <span class="floater" style="--x:3%;  --y:9%;  --s:1.06; --d:0s;">
+      <img src="assets/rem-q-wink.png" alt="">
+    </span>
+    <span class="floater" style="--x:78%; --y:4%;  --s:.94; --d:1.2s;">
+      <img src="assets/rem-q-calm.png" alt="">
+    </span>
+    <span class="floater" style="--x:87%; --y:44%; --s:.76; --d:1.5s;">
+      <img src="assets/rem-q-cat2.png" alt="">
+    </span>
+    <span class="floater" style="--x:80%; --y:76%; --s:1.0;  --d:.6s;">
+      <img src="assets/rem-q-cat.png" alt="">
+    </span>
+    <span class="floater" style="--x:5%;  --y:52%; --s:.8;  --d:1.8s;">
+      <img src="assets/rem-q-sleep.png" alt="">
+    </span>
+    <span class="floater" style="--x:6%;  --y:84%; --s:.7;  --d:2.4s;">
+      <img src="assets/rem-q-tiny.png" alt="">
+    </span>
+    <span class="floater" style="--x:2%;  --y:30%; --s:.6;  --d:2.9s;">
+      <img src="assets/rem-q-pawpad.png" alt="">
+    </span>
+  </div>
+
+  <!-- 中央：标题 + 进入按钮 -->
+  <div class="gate-center">
+    <p class="gate-kicker">WELCOME&nbsp;TO&nbsp;MY&nbsp;LITTLE&nbsp;WORLD</p>
+    <h1 class="gate-title">雷姆色的<br><em>个人主页</em></h1>
+    <p class="gate-sub">蓝色、乒乓球，还有一首《怪咖》</p>
+
+    <button class="enter-btn" id="enterBtn" type="button">
+      <span class="enter-btn__ring" aria-hidden="true"></span>
+      <span class="enter-btn__ring enter-btn__ring--2" aria-hidden="true"></span>
+      <span class="enter-btn__text">进 入</span>
+    </button>
+
+    <p class="gate-hint">点一下，开始</p>
+  </div>
+
+  <!-- 底部署名 -->
+  <div class="gate-sign" aria-hidden="true">REM&nbsp;·&nbsp;BLUE&nbsp;·&nbsp;2026</div>
+</div>
+
+
+<!-- ============================================================
+     二、主内容
+     ============================================================ -->
+<main class="site" id="site">
+
+  <!-- 侧边导航点 -->
+  <nav class="dots" aria-label="页面导航">
+    <a class="dot" href="#hero"    data-label="首页"></a>
+    <a class="dot" href="#hobby"   data-label="爱好"></a>
+    <a class="dot" href="#music"   data-label="音乐"></a>
+  </nav>
+
+  <!-- 全站漂浮 Q 版雷姆装饰 -->
+  <div class="deco" aria-hidden="true">
+    <span class="deco-item" style="--x:3%;  --y:14%; --s:.66; --d:.4s;">
+      <img src="assets/rem-q-happy.png" alt="">
+    </span>
+    <span class="deco-item" style="--x:91%; --y:30%; --s:.6;  --d:1.6s;">
+      <img src="assets/rem-q-lie.png" alt="">
+    </span>
+    <span class="deco-item" style="--x:93%; --y:74%; --s:.62; --d:2.2s;">
+      <img src="assets/rem-q-tiny.png" alt="">
+    </span>
+    <span class="deco-item" style="--x:2%;  --y:80%; --s:.56; --d:1s;">
+      <img src="assets/rem-q-catwave.png" alt="">
+    </span>
+    <span class="deco-item" style="--x:88%; --y:52%; --s:.5;  --d:2.8s;">
+      <img src="assets/rem-q-pawpad.png" alt="">
+    </span>
+  </div>
+
+
+  <!-- ---------------------------------------------------------
+       1. 首页：先出现自拍
+       右侧是泳池里的雷姆（主视觉）
+       --------------------------------------------------------- -->
+  <section class="hero" id="hero">
+
+    <!-- 泳池雷姆：作为右侧氛围主视觉 -->
+    <div class="hero-rem" aria-hidden="true">
+      <div class="hero-rem__frame">
+        <img src="assets/rem-pool.jpg" alt="">
+      </div>
+      <div class="hero-rem__glow"></div>
+      <p class="hero-rem__cap">Rem · 蓝色是信仰</p>
+    </div>
+
+    <!-- 左侧：自我介绍 + 自拍 -->
+    <div class="hero-main">
+      <p class="eyebrow reveal">01 &nbsp;/&nbsp; HELLO</p>
+
+      <h2 class="hero-hello reveal">
+        <span id="typeTarget" class="hero-hello__text"></span>
+        <span class="caret" aria-hidden="true"></span>
+      </h2>
+
+      <p class="hero-desc reveal">
+        欢迎来到我的小站。这里放着我喜欢的颜色、喜欢的运动，
+        还有单曲循环过很多遍的那首歌。<br>
+        往下滑，慢慢看。
+      </p>
+
+      <ul class="hero-tags reveal">
+        <li>蓝色控</li>
+        <li>雷姆本命</li>
+        <li>乒乓球</li>
+        <li>怪咖 · 单曲循环</li>
+      </ul>
+
+      <!-- 我的自拍 -->
+      <figure class="selfie reveal">
+        <div class="selfie__frame">
+          <!-- 想换成别的照片：把下面的 自拍.jpg 换成你的文件名即可 -->
+          <img src="自拍.jpg" alt="我的自拍">
+          <span class="selfie__shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          <strong>这就是我</strong>
+          <span>照片里的人，也是这个网站的主人</span>
+        </figcaption>
+        <span class="selfie__sticker" aria-hidden="true">
+          <img src="assets/rem-q-wink.png" alt="">
+        </span>
+      </figure>
+    </div>
+
+    <!-- 向下箭头 -->
+    <a class="scroll-cue" href="#hobby">
+      <span>继续</span>
+      <i aria-hidden="true"></i>
+    </a>
+  </section>
+
+
+  <!-- ---------------------------------------------------------
+       2. 爱好：乒乓球
+       --------------------------------------------------------- -->
+  <section class="hobby" id="hobby">
+    <div class="sec-head reveal">
+      <p class="eyebrow">02 &nbsp;/&nbsp; HOBBY</p>
+      <h2 class="sec-title">我最爱的运动 &mdash; <em>乒乓球</em></h2>
+    </div>
+
+    <div class="hobby-grid">
+
+      <!-- 球台卡片：小白球在上面来回弹 -->
+      <div class="tt-table reveal">
+        <div class="tt-net" aria-hidden="true"></div>
+        <span class="tt-ball" aria-hidden="true"></span>
+        <div class="tt-table__inner">
+          <span class="tt-badge">TABLE TENNIS</span>
+          <h3>乒乓球</h3>
+          <p>
+            一颗 40 毫米的小球，一张两米七的球台。<br>
+            喜欢它不只是因为好玩 &mdash; 每一板都要自己在
+            零点几秒里做决定，特别痛快。
+          </p>
+        </div>
+        <span class="tt-paddle" aria-hidden="true">
+          <img src="assets/rem-q-big.png" alt="">
+        </span>
+      </div>
+
+      <!-- 爱好详情 -->
+      <ul class="hobby-list">
+        <li class="hobby-item reveal">
+          <span class="hobby-item__ico">
+            <img src="assets/rem-q-cat.png" alt="">
+          </span>
+          <div>
+            <h4>喜欢怎么打</h4>
+            <p>偏近台快攻，正手拉球是主要得分手段，接发球喜欢抢先上手。</p>
+          </div>
+        </li>
+        <li class="hobby-item reveal">
+          <span class="hobby-item__ico">
+            <img src="assets/rem-q-shy.png" alt="">
+          </span>
+          <div>
+            <h4>为什么喜欢</h4>
+            <p>节奏快、变化多，一个小球能打出旋转、落点、力量三种博弈。</p>
+          </div>
+        </li>
+        <li class="hobby-item reveal">
+          <span class="hobby-item__ico">
+            <img src="assets/rem-q-stare.png" alt="">
+          </span>
+          <div>
+            <h4>打球的时候</h4>
+            <p>什么都不用想，只盯着那颗白球。算是最纯粹的解压方式。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ---------------------------------------------------------
+       3. 音乐：怪咖
+       --------------------------------------------------------- -->
+  <section class="music" id="music">
+    <div class="sec-head reveal">
+      <p class="eyebrow">03 &nbsp;/&nbsp; MUSIC</p>
+      <h2 class="sec-title">一直在循环的那首歌 &mdash; <em>《怪咖》</em></h2>
+    </div>
+
+    <div class="player reveal">
+      <!-- 唱片 -->
+      <div class="player__disc" aria-hidden="true">
+        <div class="player__disc-ring"></div>
+        <div class="player__disc-hole"></div>
+        <span class="player__disc-ico">
+          <img src="assets/rem-q-happy.png" alt="">
+        </span>
+      </div>
+
+      <div class="player__main">
+        <p class="player__label">NOW&nbsp;PLAYING</p>
+        <h3 class="player__song">怪咖</h3>
+        <p class="player__meta">薛之谦 &nbsp;·&nbsp; 我的单曲循环</p>
+
+        <!-- 均衡器 -->
+        <div class="equalizer" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <!-- 想放真实音频：把 怪咖.mp3 放到本文件夹，然后删掉下面两行前后的注释符号
+        <audio id="bgm" controls loop src="怪咖.mp3"></audio>
+        -->
+
+        <p class="player__tip">
+          把《怪咖》的音频文件命名为 <code>怪咖.mp3</code> 放进本文件夹，
+          再按 <code>index.html</code> 里的说明打开播放器，就能在这里直接听。
+        </p>
+
+        <button class="player__toggle" id="eqToggle" type="button">暂停律动</button>
+      </div>
+
+      <!-- 歌词/感受 -->
+      <blockquote class="player__quote">
+        <p>「 我就是个怪咖，</p>
+        <p>　没什么不一样，只是有点反常。」</p>
+        <cite>&mdash;&nbsp;听《怪咖》的时候，总觉得被说中了</cite>
+      </blockquote>
+    </div>
+  </section>
+
+
+  <!-- ---------------------------------------------------------
+       4. 结尾
+       --------------------------------------------------------- -->
+  <footer class="outro" id="outro">
+    <div class="outro__rem" aria-hidden="true">
+      <img src="assets/rem-full.png" alt="">
+    </div>
+    <div class="outro__text reveal">
+      <h2>看完了，谢谢你</h2>
+      <p>蓝色、乒乓球、雷姆，还有《怪咖》&mdash;&mdash;这就是我的全部关键词。</p>
+      <a class="outro__top" href="#hero">回到最上面 ↑</a>
+    </div>
+    <p class="outro__copy">© 2026 我的个人主页 · 用 HTML / CSS / JavaScript 手写</p>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
